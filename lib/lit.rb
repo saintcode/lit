@@ -8,6 +8,7 @@ module Lit
   mattr_accessor :storage_options
   mattr_accessor :humanize_key
   mattr_accessor :ignored_keys
+  mattr_accessor :ignore_prefixes
   mattr_accessor :ignore_yaml_on_startup
   mattr_accessor :api_enabled
   mattr_accessor :api_key

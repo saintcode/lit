@@ -58,6 +58,7 @@ module Lit
     def get_localization_keys
       key_parts = @search_options[:key_prefix].to_s.split('.').length
       @prefixes = @scope.reorder(nil).distinct.pluck(:localization_key).map { |lk| lk.split('.').shift(key_parts + 1).join('.') }.uniq.sort
+      @prefixes = @prefixes - Lit.ignore_prefixes if @prefixes.any?
       if @search_options[:key_prefix].present?
         parts = @search_options[:key_prefix].split('.')
         @parent_prefix = parts[0, parts.length - 1].join('.')
